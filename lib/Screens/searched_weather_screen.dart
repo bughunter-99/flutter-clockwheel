@@ -98,7 +98,7 @@ class _SearchedWeatherScreenState extends State<SearchedWeatherScreen> {
                         ),
                         SizedBox(width: 10),
                         Text(
-                          weatherData.temprature.toString() + "°C",
+                          (weatherData.temprature - 273.15).toString() + "°C",
                           style: TextStyle(fontSize: 15),
                         ),
                         SizedBox(width: 10),
