@@ -22,6 +22,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
     try {
       posotion = await Geolocator.getCurrentPosition(
           desiredAccuracy: LocationAccuracy.low);
+      print(posotion);
     } catch (e) {
       print(e);
     }
@@ -103,7 +104,8 @@ class _WeatherScreenState extends State<WeatherScreen> {
                         ),
                         SizedBox(width: 10),
                         Text(
-                          (weatherData.temprature - 273.15).toString() + "°C",
+                          (weatherData.temprature - 273.15).toStringAsFixed(2) +
+                              "°C",
                           style: TextStyle(fontSize: 15),
                         ),
                         SizedBox(width: 10),
@@ -134,6 +136,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                     content: TextField(
                                       onChanged: (newText) {
                                         query = newText;
+                                        print(newText);
                                       },
                                       decoration: InputDecoration(
                                         hintText: "Enter a valid location ",

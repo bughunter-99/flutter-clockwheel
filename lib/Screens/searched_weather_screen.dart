@@ -14,7 +14,7 @@ class SearchedWeatherScreen extends StatefulWidget {
 class _SearchedWeatherScreenState extends State<SearchedWeatherScreen> {
   String apikey = '88ab51cd7bbae53c9ed6a9564e563c8a';
   bool isLoading;
-  bool isError;
+
   WeatherData weatherData;
   getWeather() async {
     setState(() {
@@ -27,11 +27,6 @@ class _SearchedWeatherScreenState extends State<SearchedWeatherScreen> {
       return setState(() {
         weatherData = WeatherData.fromJson(jsonDecode(weatherResponse.body));
         isLoading = false;
-        isError = false;
-      });
-    } else {
-      setState(() {
-        isError = true;
       });
     }
     setState(() {
@@ -98,7 +93,8 @@ class _SearchedWeatherScreenState extends State<SearchedWeatherScreen> {
                         ),
                         SizedBox(width: 10),
                         Text(
-                          (weatherData.temprature - 273.15).toString() + "°C",
+                          (weatherData.temprature - 273.15).toStringAsFixed(2) +
+                              "°C",
                           style: TextStyle(fontSize: 15),
                         ),
                         SizedBox(width: 10),
