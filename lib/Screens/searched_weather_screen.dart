@@ -21,7 +21,7 @@ class _SearchedWeatherScreenState extends State<SearchedWeatherScreen> {
       isLoading = true;
     });
     final weatherResponse = await http.get(
-        'http://api.openweathermap.org/data/2.5/weather?q=${widget.query}&units=metric&appid=$apikey');
+        'http://api.openweathermap.org/data/2.5/weather?q=${widget.query}&appid=$apikey');
 
     if (weatherResponse.statusCode == 200) {
       return setState(() {
